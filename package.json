@@ -16,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/kimberleejohnson/webauth-iii-challenge/issues"
   },
-  "homepage": "https://github.com/kimberleejohnson/webauth-iii-challenge#readme"
+  "homepage": "https://github.com/kimberleejohnson/webauth-iii-challenge#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.17.5",
+    "sqlite3": "^4.0.8"
+  }
 }
