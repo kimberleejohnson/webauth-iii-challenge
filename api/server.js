@@ -5,7 +5,7 @@ const cors = require('cors');
 
 // Requiring routers 
 const authRouter = require('../auth/auth-router.js'); 
-// PLACEHOLDER for future routers
+const userRouter = require('../users/users-router.js'); 
 
 // Defining server
 const server = express(); 
@@ -17,6 +17,7 @@ server.use(cors());
 
 // Using routers 
 server.use('/api/auth', authRouter)
+server.use('/api/users', userRouter); 
 // PLACEHOLDER for using future routers 
 
 server.get('/', (req, res) => {
