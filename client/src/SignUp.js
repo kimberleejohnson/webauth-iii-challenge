@@ -1,6 +1,8 @@
 // We need a Register route as well 
 
 import React from 'react'; 
+// Importing withRouter to redirect upon register
+import { withRouter } from 'react-router-dom'; 
 // Importing axios helper to make code more dry 
 import api from './helpers/api'; 
 
@@ -28,7 +30,12 @@ class SignUp extends React.Component {
                 department
             })
 
-            console.log(result); 
+            // Storing results of login in local storage
+            localStorage.setItem('token', result.data.token); 
+
+            // Redirecting once token is set 
+            this.props.history.push('/signin'); 
+
 
         } catch (err) {
             console.error(err); 
@@ -59,4 +66,4 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp; 
+export default withRouter(SignUp); 

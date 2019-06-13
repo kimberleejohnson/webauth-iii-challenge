@@ -23,6 +23,7 @@ class Users extends React.Component {
                 }));
             
         } catch (err) {
+            console.log(err); 
             if(err.response.status === 401 || err.response.status === 403) {
                 this.props.history.push('/signin'); 
             } else {
