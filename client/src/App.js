@@ -1,12 +1,10 @@
-// I deleted boilerplate and CSS from App.js 
+// I deleted boilerplate React greeting page, CSS, logo from App.js. I also removed testing and service worker, since those are beyond the scope of Lambda School.
 
 import React from 'react';
-import logo from './logo.svg';
-
 
 function App() {
   return (
-    
+    <div /> 
   );
 }
 
