@@ -1,6 +1,8 @@
+// We need a Login route on the frontend 
+
 import React from 'react'; 
 
-class Login extends React.Component {
+class SignIn extends React.Component {
     render() {
         return(
             <> 
@@ -10,4 +12,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login; 
+export default SignIn; 
