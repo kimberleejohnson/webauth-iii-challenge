@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kimberleejohnson/webauth-iii-challenge#readme",
   "devDependencies": {
+    "create-react-app": "^3.0.1",
     "nodemon": "^1.19.1"
   },
   "dependencies": {
