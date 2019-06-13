@@ -2,6 +2,9 @@
 
 import React from 'react'; 
 
+// Importing axios so I can make HTTP requests
+import axios from 'axios'; 
+
 class SignIn extends React.Component {
     state = {
         username: '',
@@ -9,9 +12,28 @@ class SignIn extends React.Component {
     }
 
     // Defining my change handler function 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault(); 
-        console.log(this.state); 
+
+        try {
+
+            // Destructuring my state objects
+            const {username, password } = this.state
+
+            // Endpoint is our backend server's endpoint 
+            const endpoint = 'http://localhost:5500/api/auth/login'; 
+
+            // This sends information from the frontend to our backend endpoint 
+            const result = await axios.post(endpoint, {
+                username, 
+                password
+            })
+
+            console.log(result); 
+
+        } catch (err) {
+            console.error(err); 
+        }
     }
 
     handleChanges = e => {
@@ -23,7 +45,7 @@ class SignIn extends React.Component {
     render() {
         return(
             <> 
-                <h3> Login </h3>
+                <h3> Sign In </h3>
                 <form onSubmit={this.handleSubmit}> 
                     <input type="text" name="username" placeholder="username" onChange={this.handleChanges} value={this.state.username} />
 
