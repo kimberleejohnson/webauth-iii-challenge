@@ -1,6 +1,8 @@
 // We need a Users route as well 
 
 import React from 'react'; 
+// Importing withRouter to redirect when there's a 401 or 403 error 
+import { withRouter } from 'react-router-dom'; 
 // importing axios api helper
 import api from './helpers/api'; 
 
@@ -21,7 +23,11 @@ class Users extends React.Component {
                 }));
             
         } catch (err) {
+            if(err.response.status === 401 || err.response.status === 403) {
+                this.props.history.push('/signin'); 
+            } else {
             console.error(err); 
+            }
         }
     }
 
@@ -40,4 +46,4 @@ class Users extends React.Component {
     }
 }
 
-export default Users; 
+export default withRouter(Users); 
