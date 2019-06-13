@@ -2,8 +2,8 @@
 
 import React from 'react'; 
 
-// Importing axios so I can make HTTP requests
-import axios from 'axios'; 
+// Importing axios helper to make code more dry 
+import api from './helpers/api'; 
 
 class SignIn extends React.Component {
     state = {
@@ -18,13 +18,10 @@ class SignIn extends React.Component {
         try {
 
             // Destructuring my state objects
-            const {username, password } = this.state
-
-            // Endpoint is our backend server's endpoint 
-            const endpoint = 'http://localhost:5500/api/auth/login'; 
+            const {username, password } = this.state;
 
             // This sends information from the frontend to our backend endpoint 
-            const result = await axios.post(endpoint, {
+            const result = await api.post('/auth/login', {
                 username, 
                 password
             })
