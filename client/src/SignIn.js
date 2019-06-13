@@ -1,6 +1,8 @@
 // We need a Login route on the frontend 
 
 import React from 'react'; 
+// Importing withRouter to redirect upon login 
+import { withRouter } from 'react-router-dom'; 
 
 // Importing axios helper to make code more dry 
 import api from './helpers/api'; 
@@ -28,6 +30,9 @@ class SignIn extends React.Component {
 
             // Storing results of login in local storage
             localStorage.setItem('token', result.data.token); 
+
+            // Redirecting once token is set 
+            this.props.history.push('/users'); 
 
             // Test storage on cookie
             //document.cookie = `token=${result.data.token}`
@@ -61,4 +66,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn; 
+export default withRouter(SignIn); 
