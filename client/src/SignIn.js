@@ -26,8 +26,13 @@ class SignIn extends React.Component {
                 password
             })
 
-            // Storing results of login 
-            document.cookie = `token=${result.data.token}`
+            // Storing results of login in local storage
+            localStorage.setItem('token', result.data.token); 
+
+            // Test storage on cookie
+            //document.cookie = `token=${result.data.token}`
+
+        
 
         } catch (err) {
             console.error(err); 
